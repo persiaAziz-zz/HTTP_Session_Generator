@@ -11,6 +11,7 @@ method = {'GET','POST','HEAD'}
 
 def GenTxn():
     global count
+    content_len = random.randint(200,500)
     txn = dict()
     txn["request"] = dict()
     txn["request"]["body"]=""
@@ -22,7 +23,7 @@ def GenTxn():
     txn["response"] = dict()
     txn["response"]["body"]=""
     txn["response"]["timestamp"]="1234"
-    txn["response"]["headers"]="HTTP/1.1 200 OK\r\nCache-Control: max-age=31536000,public\r\nContent-Length: 564\r\nContent-Type: image/png\r\n\r\n"
+    txn["response"]["headers"]="HTTP/1.1 200 OK\r\nCache-Control: max-age=31536000,public\r\nContent-Length: {0}\r\nContent-Type: image/png\r\n\r\n".format(content_len)
     return txn
 
 def GenTxns(nTxn):
